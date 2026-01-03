@@ -22,6 +22,7 @@
 
 <details>
 
+-   [`016b07f`](https://github.com/stdlib-js/stdlib/commit/016b07f8610e21332af7bfbc38afbacdbeac8583) - **refactor:** rename/reorder parameters _(by Athan Reines)_
 -   [`f40ccb7`](https://github.com/stdlib-js/stdlib/commit/f40ccb75929e92538b8c366145589addccdaafbe) - **feat:** add `ndarray/base/ternary-loop-interchange-order` [(#9499)](https://github.com/stdlib-js/stdlib/pull/9499) _(by Muhammad Haris, Athan Reines)_
 
 </details>
