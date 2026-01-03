@@ -70,7 +70,7 @@ To view installation and usage instructions specific to each branch build, be su
 ## Usage
 
 ```javascript
-var ternaryLoopOrder = require( '@stdlib/ndarray-base-binary-loop-interchange-order' );
+var ternaryLoopOrder = require( '@stdlib/ndarray-base-ternary-loop-interchange-order' );
 ```
 
 #### ternaryLoopOrder( shape, stridesX, stridesY, stridesZ, stridesW )
@@ -140,7 +140,7 @@ For all returned arrays, the first element corresponds to the innermost loop, an
 var array = require( '@stdlib/ndarray-array' );
 var getShape = require( '@stdlib/ndarray-shape' );
 var getStrides = require( '@stdlib/ndarray-strides' );
-var ternaryLoopOrder = require( '@stdlib/ndarray-base-binary-loop-interchange-order' );
+var ternaryLoopOrder = require( '@stdlib/ndarray-base-ternary-loop-interchange-order' );
 
 // Create ndarrays:
 var x = array( [ [ 1, 2 ], [ 3, 4 ] ] );
