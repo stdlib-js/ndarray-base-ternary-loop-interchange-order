@@ -45,17 +45,35 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/ndarray-base-ternary-loop-interchange-order
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import ternaryLoopOrder from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-binary-loop-interchange-order@esm/index.mjs';
+var ternaryLoopOrder = require( '@stdlib/ndarray-base-binary-loop-interchange-order' );
 ```
 
-#### ternaryLoopOrder( shape, stridesW, stridesX, stridesY, stridesZ )
+#### ternaryLoopOrder( shape, stridesX, stridesY, stridesZ, stridesW )
 
 Reorders [ndarray][@stdlib/ndarray/ctor] dimensions and associated strides for [loop interchange][loop-interchange].
 
@@ -64,25 +82,25 @@ Reorders [ndarray][@stdlib/ndarray/ctor] dimensions and associated strides for [
 var shape = [ 2, 2 ];
 
 // Define the strides for the input arrays:
-var stridesW = [ 2, 1 ]; // row-major
-var stridesX = [ 4, 2 ]; // row-major
-var stridesY = [ 1, 2 ]; // column-major
-
-// Define the strides for the output array:
+var stridesX = [ 2, 1 ]; // row-major
+var stridesY = [ 4, 2 ]; // row-major
 var stridesZ = [ 1, 2 ]; // column-major
 
+// Define the strides for the output array:
+var stridesW = [ 1, 2 ]; // column-major
+
 // Resolve the loop interchange order:
-var o = ternaryLoopOrder( shape, stridesW, stridesX, stridesY, stridesZ );
+var o = ternaryLoopOrder( shape, stridesX, stridesY, stridesZ, stridesW );
 // returns {...}
 ```
 
 The function returns an object having the following properties:
 
 -   **sh**: ordered dimensions.
--   **sw**: first input array strides sorted in loop order.
--   **sx**: second input array strides sorted in loop order.
--   **sy**: third input array strides sorted in loop order.
--   **sz**: output array strides sorted in loop order.
+-   **sx**: first input array strides sorted in loop order.
+-   **sy**: second input array strides sorted in loop order.
+-   **sz**: third input array strides sorted in loop order.
+-   **sw**: output array strides sorted in loop order.
 
 For all returned arrays, the first element corresponds to the innermost loop, and the last element corresponds to the outermost loop.
 
@@ -118,32 +136,23 @@ For all returned arrays, the first element corresponds to the innermost loop, an
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
-import getShape from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-shape@esm/index.mjs';
-import getStrides from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-strides@esm/index.mjs';
-import ternaryLoopOrder from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-binary-loop-interchange-order@esm/index.mjs';
+```javascript
+var array = require( '@stdlib/ndarray-array' );
+var getShape = require( '@stdlib/ndarray-shape' );
+var getStrides = require( '@stdlib/ndarray-strides' );
+var ternaryLoopOrder = require( '@stdlib/ndarray-base-binary-loop-interchange-order' );
 
 // Create ndarrays:
-var w = array( [ [ 1, 2 ], [ 3, 4 ] ] );
-var x = array( [ [ 5, 6 ], [ 7, 8 ] ] );
-var y = array( [ [ 9, 10 ], [ 11, 12 ] ] );
-var z = array( [ [ 0, 0 ], [ 0, 0 ] ] );
+var x = array( [ [ 1, 2 ], [ 3, 4 ] ] );
+var y = array( [ [ 5, 6 ], [ 7, 8 ] ] );
+var z = array( [ [ 9, 10 ], [ 11, 12 ] ] );
+var w = array( [ [ 0, 0 ], [ 0, 0 ] ] );
 
 // Resolve loop interchange data:
-var o = ternaryLoopOrder( getShape( w ), getStrides( w ), getStrides( x ), getStrides( y ), getStrides( z ) );
+var o = ternaryLoopOrder( getShape( x ), getStrides( x ), getStrides( y ), getStrides( z ), getStrides( w ) );
 // returns {...}
 
 console.log( o );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -175,7 +184,7 @@ console.log( o );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -242,7 +251,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [loop-nest-optimization]: https://en.wikipedia.org/wiki/Loop_nest_optimization
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/esm
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
 
 </section>
 
