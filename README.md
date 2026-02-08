@@ -52,7 +52,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import ternaryLoopOrder from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-ternary-loop-interchange-order@esm/index.mjs';
+import ternaryLoopOrder from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-ternary-loop-interchange-order@v0.1.1-esm/index.mjs';
 ```
 
 #### ternaryLoopOrder( shape, stridesX, stridesY, stridesZ, stridesW )
@@ -127,7 +127,7 @@ For all returned arrays, the first element corresponds to the innermost loop, an
 import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
 import getShape from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-shape@esm/index.mjs';
 import getStrides from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-strides@esm/index.mjs';
-import ternaryLoopOrder from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-ternary-loop-interchange-order@esm/index.mjs';
+import ternaryLoopOrder from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-ternary-loop-interchange-order@v0.1.1-esm/index.mjs';
 
 // Create ndarrays:
 var x = array( [ [ 1, 2 ], [ 3, 4 ] ] );
